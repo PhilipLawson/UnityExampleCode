@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ChangeMaterialColor : MonoBehaviour
 {
-    public Material myMaterial;
+    public Material myMaterial; //The material you wish to change
     private bool changeMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
-        changeMaterial = false;
+        changeMaterial = true;
     }
 
     // Update is called once per frame
@@ -21,17 +22,20 @@ public class ChangeMaterialColor : MonoBehaviour
         }
     }
 
+    // Function to change the material color
     void changeColor()
     {
-        if(changeMaterial == false)
+        // Just using a bool of any value to switch between states
+        if(changeMaterial == true)
         {
-            myMaterial.SetColor("_Color",Color.green);
-            changeMaterial = true;
+            // Uses the material with the SetColor method
+            myMaterial.SetColor("_Color", Color.green); //change it to green
+            changeMaterial = false;
         }
         else
         {
-            myMaterial.SetColor("_Color",Color.red);
-            changeMaterial = false;
+            myMaterial.SetColor("_Color", Color.red); // Change it to red
+            changeMaterial = true;
         }
     }
 }
