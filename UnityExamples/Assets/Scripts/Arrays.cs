@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Arrays : MonoBehaviour
 {
     // Create an array of GameObjects
     [SerializeField] private GameObject[] objs;
-    private int objCount = 1;
+    [SerializeField] private TextMeshProUGUI[] TextBoxes;
+    private int objCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +20,10 @@ public class Arrays : MonoBehaviour
     {
         foreach (var item in objsToUse)
         {
-            // Write the names to the console
-            Debug.Log("GameObject #" + objCount + " is:- " + item.name);
+            // Write the names to the text
+            TextBoxes[objCount].text = item.name;
             objCount++;
         }
-        Debug.Log("There were " + objs.Length + " objects in the array.");
+        Debug.Log("There were " + (objs.Length + 1) + " objects in the array.");
     }
 }
