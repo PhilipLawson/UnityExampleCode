@@ -1,5 +1,5 @@
 # UnityExampleCode
-This is a collection of code that can be used for reference.
+This is a collection of code that can be used for reference. Created in Unity 2020.2.6f1
 
 ::Steps::
 1. Clone repo
