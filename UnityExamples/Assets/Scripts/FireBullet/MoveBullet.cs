@@ -22,6 +22,10 @@ public class MoveBullet : MonoBehaviour
         // If it collides with anything, we kill it.
         // if(other.gameObject.tag == "enemy") would be used to then
         // kill the enemy object.
-        Destroy(bullet);
+        if(other.gameObject.tag == "enemy")
+        {
+            Destroy(bullet);
+            Destroy(other.gameObject);
+        }
     }
 }
