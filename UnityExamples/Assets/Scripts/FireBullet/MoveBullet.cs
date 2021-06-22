@@ -15,4 +15,13 @@ public class MoveBullet : MonoBehaviour
             bulletRB.GetComponent<Rigidbody>().velocity = new Vector3(10.0f,0,0);
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        // This is how we should destroy the gameobject.
+        // If it collides with anything, we kill it.
+        // if(other.gameObject.tag == "enemy") would be used to then
+        // kill the enemy object.
+        Destroy(bullet);
+    }
 }
