@@ -4,11 +4,6 @@ public class RotateItem : MonoBehaviour
 {
     [SerializeField] private Vector3 speed;
 
-    void Start()
-    {
-        speed = new Vector3(0,60.0f,0); //spins on Y
-    }
-
     // Update is called once per frame
     void Update()
     {
