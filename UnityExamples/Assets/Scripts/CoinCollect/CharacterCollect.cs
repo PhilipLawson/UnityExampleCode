@@ -39,10 +39,14 @@ public class CharacterCollect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // The coins collider object is set to be a trigger from the UI.
         if(other.gameObject.tag == "Coin")
         {
-            coinCount ++;
-            coins.text = coinCount.ToString();
+            coinCount ++; // Increase the coin count by 1
+            // Set the text to be the value of coinCount. 
+            // ToString converts from an int to a string.
+            coins.text = coinCount.ToString(); 
+            // Destroy the coin object
             Destroy(other.gameObject);
         }
     }
