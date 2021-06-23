@@ -8,7 +8,7 @@ This is a collection of code that can be used for reference. Created in Unity 20
 
 # ::Examples::
 ![Collect a Coin](./Images/coinCollect.png)
-Collect an object example - colleisions, text updating and user input.
+Collect an object example - collisions, text updating and user input.
 
 
 ![Countdown clock](./Images/countdown.png)
