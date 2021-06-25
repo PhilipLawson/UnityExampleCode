@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     bool canJump=true;
+    public Vector3 startPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +68,7 @@ public class MovePlayer : MonoBehaviour
         // rigidbody.
         this.GetComponent<Rigidbody>().isKinematic = true;
         this.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
-        this.GetComponent<Rigidbody>().position = new Vector3(0,0.5f,0f);
+        this.GetComponent<Rigidbody>().position = startPos;
         this.GetComponent<Rigidbody>().isKinematic = false;
     }
 }
