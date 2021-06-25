@@ -6,6 +6,7 @@ public class MovePlayer : MonoBehaviour
 {
     bool canJump=true;
     public Vector3 startPos;
+    public bool AllowJump = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +34,12 @@ public class MovePlayer : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Space) && canJump == true)
         {
-            canJump = false; //change to false so no air jumping
-            //Add velocity to the rigidbody
-            this.GetComponent<Rigidbody>().velocity = new Vector3(0,5.0f,0);
+            if(AllowJump)
+            {
+                canJump = false; //change to false so no air jumping
+                //Add velocity to the rigidbody
+                this.GetComponent<Rigidbody>().velocity = new Vector3(0,5.0f,0);
+            }
         }
     }
     void OnCollisionEnter(Collision other)
