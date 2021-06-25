@@ -66,7 +66,7 @@ public class MovePlayer : MonoBehaviour
         }
     }
 
-    void Respawn()
+    public void Respawn()
     {
         // If the cube touches the respawn trigger, we turn
         // make it a kinematic RB, move it, then re-enable
