@@ -45,19 +45,29 @@ public class MovePlayer : MonoBehaviour
         {
             canJump = true;
         }
+        if(other.gameObject.tag == "bullet")
+        {
+            Destroy(other.gameObject);
+            Respawn();
+        }
     }
 
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Respawn")
         {
-            // If the cube touches the respawn trigger, we turn
-            // make it a kinematic RB, move it, then re-enable
-            // rigidbody.
-            this.GetComponent<Rigidbody>().isKinematic = true;
-            this.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
-            this.GetComponent<Rigidbody>().position = new Vector3(0,0.5f,0f);
-            this.GetComponent<Rigidbody>().isKinematic = false;
+            Respawn();
         }
+    }
+
+    void Respawn()
+    {
+        // If the cube touches the respawn trigger, we turn
+        // make it a kinematic RB, move it, then re-enable
+        // rigidbody.
+        this.GetComponent<Rigidbody>().isKinematic = true;
+        this.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        this.GetComponent<Rigidbody>().position = new Vector3(0,0.5f,0f);
+        this.GetComponent<Rigidbody>().isKinematic = false;
     }
 }
