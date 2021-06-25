@@ -707,6 +707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 1, z: 0}
+  AllowJump: 1
+  playerSpeed: 5
 --- !u!65 &1647711855
 BoxCollider:
   m_ObjectHideFlags: 0

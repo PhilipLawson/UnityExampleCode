@@ -7,6 +7,7 @@ public class MovePlayer : MonoBehaviour
     bool canJump=true;
     public Vector3 startPos;
     public bool AllowJump = true;
+    public float playerSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,19 +19,19 @@ public class MovePlayer : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(5.0f,0.0f,0.0f);
+            this.GetComponent<Rigidbody>().velocity = new Vector3(playerSpeed,0.0f,0.0f);
         }
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(-5.0f,0.0f,0.0f);
+            this.GetComponent<Rigidbody>().velocity = new Vector3(-playerSpeed,0.0f,0.0f);
         }
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,5.0f);
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,playerSpeed);
         }
         if(Input.GetKey(KeyCode.DownArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,-5.0f);
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,-playerSpeed);
         }
         if(Input.GetKeyDown(KeyCode.Space) && canJump == true)
         {

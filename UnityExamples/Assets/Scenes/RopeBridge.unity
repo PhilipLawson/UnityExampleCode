@@ -2851,6 +2851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: -4.5, y: 2, z: 0}
   AllowJump: 0
+  playerSpeed: 10
 --- !u!1 &1853511234
 GameObject:
   m_ObjectHideFlags: 0
