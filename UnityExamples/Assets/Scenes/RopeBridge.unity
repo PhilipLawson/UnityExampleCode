@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 161374153}
   m_Layer: 0
   m_Name: Plank (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 215421540}
   m_Layer: 0
   m_Name: Land
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 497313703}
   m_Layer: 0
   m_Name: Plank (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1264,7 +1264,7 @@ GameObject:
   - component: {fileID: 1140733214}
   m_Layer: 0
   m_Name: Plank
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2253,7 +2253,7 @@ GameObject:
   - component: {fileID: 1697733036}
   m_Layer: 0
   m_Name: Plank (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2830,12 +2830,12 @@ Rigidbody:
   m_GameObject: {fileID: 1824501125}
   serializedVersion: 2
   m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: 10
+  m_Drag: 0.5
+  m_AngularDrag: 30
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!114 &1824501131
 MonoBehaviour:
@@ -3055,7 +3055,7 @@ GameObject:
   - component: {fileID: 2041263125}
   m_Layer: 0
   m_Name: Land
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3525,7 +3525,7 @@ GameObject:
   - component: {fileID: 2131093984}
   m_Layer: 0
   m_Name: Plank (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
