@@ -8,6 +8,7 @@ public class MovePlayer : MonoBehaviour
     public Vector3 startPos;
     public bool AllowJump = true;
     public float playerSpeed;
+    private float drag = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,28 +20,37 @@ public class MovePlayer : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(playerSpeed,0.0f,0.0f);
+            this.GetComponent<Rigidbody>().AddForce(transform.right * playerSpeed);
+            this.GetComponent<Rigidbody>().drag = drag;
         }
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(-playerSpeed,0.0f,0.0f);
+            this.GetComponent<Rigidbody>().AddForce(-transform.right * playerSpeed);
+            this.GetComponent<Rigidbody>().drag = drag;
         }
         if(Input.GetKey(KeyCode.UpArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,playerSpeed);
+            this.GetComponent<Rigidbody>().AddForce(transform.forward * playerSpeed);
+            this.GetComponent<Rigidbody>().drag = drag;
         }
         if(Input.GetKey(KeyCode.DownArrow))
         {
-            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f,0.0f,-playerSpeed);
+            this.GetComponent<Rigidbody>().AddForce(-transform.forward * playerSpeed);
+            this.GetComponent<Rigidbody>().drag = drag;
         }
-        if(Input.GetKeyDown(KeyCode.Space) && canJump == true)
+        if(Input.GetKey(KeyCode.Space) && canJump == true)
         {
             if(AllowJump)
             {
                 canJump = false; //change to false so no air jumping
                 //Add velocity to the rigidbody
                 this.GetComponent<Rigidbody>().velocity = new Vector3(0,5.0f,0);
+                this.GetComponent<Rigidbody>().drag = drag;
             }
+        }
+        if(!canJump)
+        {
+            this.GetComponent<Rigidbody>().AddForce(new Vector3(0,-9.8f * Time.deltaTime,0));
         }
     }
     void OnCollisionEnter(Collision other)
@@ -50,6 +60,7 @@ public class MovePlayer : MonoBehaviour
         if(other.gameObject.tag == "Ground")
         {
             canJump = true;
+            drag = 2;
         }
         if(other.gameObject.tag == "bullet")
         {
