@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MouseLook : MonoBehaviour {
+	Vector2 rotation = Vector2.zero;
+	public float speed = 3;
+
+	void Update () 
+    {
+		if(Input.GetKey(KeyCode.Mouse1))
+        {
+            MouseLookFunction();
+        }
+	}
+
+    void MouseLookFunction()
+    {
+        rotation.y += Input.GetAxis ("Mouse X");
+		rotation.x += -Input.GetAxis ("Mouse Y");
+		transform.eulerAngles = (Vector2)rotation * speed;
+    }
+}
