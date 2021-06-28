@@ -6,14 +6,6 @@ public class Destroy : MonoBehaviour
 {
     [SerializeField] private GameObject[] destructionParts;
     [SerializeField] private Transform bits;
-    // Start is called before the first frame update
-    void Start()
-    {
-        foreach (var item in destructionParts)
-        {
-            item.SetActive(false);
-        }
-    }
 
     // Update is called once per frame
     void Update()
