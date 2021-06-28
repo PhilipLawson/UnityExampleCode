@@ -28,12 +28,17 @@ public class ChangeMaterialColor : MonoBehaviour
         // Just using a bool of any value to switch between states
         if(changeMaterial == true)
         {
-            // Uses the material with the SetColor method
+            // Uses the material with the SetColor method using Unitys default render engine.
+            // If you are using Universal RP, use:- 
+            // GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
             myMaterial.SetColor("_Color", Color.green); //change it to green
             changeMaterial = false;
         }
         else
         {
+            // Uses the material with the SetColor method using Unitys default render engine.
+            // If you are using Universal RP, use:- 
+            // GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
             myMaterial.SetColor("_Color", Color.red); // Change it to red
             changeMaterial = true;
         }
