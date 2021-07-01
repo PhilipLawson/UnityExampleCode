@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChangeMaterialColor : MonoBehaviour
 {
-    public Material myMaterial; //The material you wish to change
+    public GameObject myMaterial; //The material you wish to change
     private bool changeMaterial;
 
     // Start is called before the first frame update
@@ -30,16 +30,17 @@ public class ChangeMaterialColor : MonoBehaviour
         {
             // Uses the material with the SetColor method using Unitys default render engine.
             // If you are using Universal RP, use:- 
-            // GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
-            myMaterial.SetColor("_Color", Color.green); //change it to green
+            myMaterial.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green);
+            //Use the following if using the standard renderer
+            //myMaterial.SetColor("_Color", Color.green); //change it to green
             changeMaterial = false;
         }
         else
         {
             // Uses the material with the SetColor method using Unitys default render engine.
             // If you are using Universal RP, use:- 
-            // GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-            myMaterial.SetColor("_Color", Color.red); // Change it to red
+            myMaterial.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+            //myMaterial.SetColor("_Color", Color.red); // Change it to red
             changeMaterial = true;
         }
     }

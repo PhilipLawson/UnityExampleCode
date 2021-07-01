@@ -31,11 +31,25 @@ public class GridMove : MonoBehaviour
         {
             Vector3 movement = new Vector3(movementX, 0.7f, movementY);
             //rb.AddForce(movement * speed);
-            rb.isKinematic = true;
             rb.position = movement;
-            rb.isKinematic = false;
-            currentPos.x = this.gameObject.transform.position.x; 
-            currentPos.y = this.gameObject.transform.position.z; 
+            currentPos.x = Mathf.Round(this.gameObject.transform.position.x); 
+            currentPos.y = Mathf.Round(this.gameObject.transform.position.z);
         }   
+    }
+    
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Wall")
+        {
+            Debug.Log("HIT");
+            float force = 5.0f;
+            // Calculate Angle Between the collision point and the player
+            Vector3 dir = other.GetContact(0).point - transform.position;
+            // We then get the opposite (-Vector3) and normalize it
+            dir = -dir.normalized;
+            // And finally we add force in the direction of dir and multiply it by force. 
+            // This will push back the player
+            rb.AddForce(dir*force, ForceMode.Force);
+        }
     }
 }

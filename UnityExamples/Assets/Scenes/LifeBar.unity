@@ -1101,9 +1101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782376514afffbc4fa5afa5e0d658362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: 0, y: 0.5, z: 0}
+  startPos: {x: 0, y: 0.6, z: 0}
   AllowJump: 0
-  playerSpeed: 5
+  playerSpeed: 20
 --- !u!54 &1758183578
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1112,7 +1112,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758183576}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1

@@ -9,6 +9,7 @@ TagManager:
   - Sphere
   - bullet
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX

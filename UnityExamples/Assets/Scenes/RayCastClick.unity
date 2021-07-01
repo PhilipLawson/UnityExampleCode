@@ -643,7 +643,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCamera: {fileID: 483520610}
   myCube: {fileID: 1131894553}
-  myMaterial: {fileID: 2100000, guid: ac9a9e9335dfd494b849d29a92114ede, type: 2}
 --- !u!1 &1203979917
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +722,7 @@ GameObject:
   - component: {fileID: 1271604646}
   - component: {fileID: 1271604645}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

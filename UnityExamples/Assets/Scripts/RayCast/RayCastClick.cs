@@ -8,7 +8,6 @@ public class RayCastClick : MonoBehaviour
     [SerializeField] private Camera myCamera;
     //Stores the ClickMe cube
     [SerializeField] private GameObject myCube;
-    public Material myMaterial; //The material you wish to change
     private bool changeMaterial;
     // Start is called before the first frame update
     void Start()
@@ -32,12 +31,12 @@ public class RayCastClick : MonoBehaviour
                 if(changeMaterial)
                 {
                     // Uses the material with the SetColor method
-                    myMaterial.SetColor("_Color", Color.green); //change it to green
+                    myCube.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.green); // Change it to green
                     changeMaterial = false;
                 }
                 else
                 {
-                    myMaterial.SetColor("_Color", Color.red); // Change it to red
+                    myCube.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red); // Change it to red
                     changeMaterial = true;
                 }
             }

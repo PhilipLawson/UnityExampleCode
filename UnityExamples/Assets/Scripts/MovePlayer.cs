@@ -8,6 +8,7 @@ public class MovePlayer : MonoBehaviour
     public Vector3 startPos;
     public bool AllowJump = true;
     public float playerSpeed;
+    public bool allowDrag = true;
     private float drag = 2;
     // Start is called before the first frame update
     void Start()
@@ -21,22 +22,18 @@ public class MovePlayer : MonoBehaviour
         if(Input.GetKey(KeyCode.RightArrow))
         {
             this.GetComponent<Rigidbody>().AddForce(transform.right * playerSpeed);
-            this.GetComponent<Rigidbody>().drag = drag;
         }
         if(Input.GetKey(KeyCode.LeftArrow))
         {
             this.GetComponent<Rigidbody>().AddForce(-transform.right * playerSpeed);
-            this.GetComponent<Rigidbody>().drag = drag;
         }
         if(Input.GetKey(KeyCode.UpArrow))
         {
             this.GetComponent<Rigidbody>().AddForce(transform.forward * playerSpeed);
-            this.GetComponent<Rigidbody>().drag = drag;
         }
         if(Input.GetKey(KeyCode.DownArrow))
         {
             this.GetComponent<Rigidbody>().AddForce(-transform.forward * playerSpeed);
-            this.GetComponent<Rigidbody>().drag = drag;
         }
         if(Input.GetKey(KeyCode.Space) && canJump == true)
         {
@@ -51,6 +48,10 @@ public class MovePlayer : MonoBehaviour
         if(!canJump)
         {
             this.GetComponent<Rigidbody>().AddForce(new Vector3(0,-9.8f * Time.deltaTime,0));
+        }
+        if(allowDrag)
+        {
+            this.GetComponent<Rigidbody>().drag = drag;
         }
     }
     void OnCollisionEnter(Collision other)
