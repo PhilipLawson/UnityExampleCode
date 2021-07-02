@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollectRing : MonoBehaviour
 {
     [SerializeField] private GameObject gamelogic;
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag=="Player")
         {
