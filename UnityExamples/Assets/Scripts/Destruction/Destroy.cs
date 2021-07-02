@@ -6,11 +6,19 @@ public class Destroy : MonoBehaviour
 {
     [SerializeField] private GameObject[] destructionParts;
     [SerializeField] private Transform bits;
+    public GameObject cube;
+        void Start()
+    {
+        cube.GetComponent<Rigidbody>().isKinematic = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            cube.GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 
     private void OnCollisionEnter(Collision other)
