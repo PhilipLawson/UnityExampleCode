@@ -13,7 +13,8 @@ public class MovePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //Set Cursor to not be visible. Only available on Build (not in Editor)
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
