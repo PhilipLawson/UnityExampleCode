@@ -5,11 +5,6 @@ using UnityEngine;
 public class PlayParticles : MonoBehaviour
 {
     public ParticleSystem blood;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -18,6 +13,11 @@ public class PlayParticles : MonoBehaviour
         {
             if(!blood.isPlaying)
             {
+                blood.Play();
+            }
+            else
+            {
+                blood.Stop();
                 blood.Play();
             }
         }
