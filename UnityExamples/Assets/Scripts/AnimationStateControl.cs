@@ -10,18 +10,22 @@ public class AnimationStateControl : MonoBehaviour
     int isCrouchingHash;
     int isJumpingHash;
     int isSpinningAttackHash;
+    int isDeadHash;
     bool p1ControlsReversed = false;
     bool p2ControlsReversed = true;
+    public GameObject sword;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        sword.GetComponent<Rigidbody>().isKinematic = true;
         isWalkingForwardHash = Animator.StringToHash("ForwardPressed");
         isWalkingBackwardHash = Animator.StringToHash("BackPressed");
         isCrouchingHash = Animator.StringToHash("isCrouching");
         isJumpingHash = Animator.StringToHash("isJumping");
         isSpinningAttackHash = Animator.StringToHash("BackAndAttack");
+        isDeadHash = Animator.StringToHash("isDead");
     }
 
     // Update is called once per frame
@@ -31,11 +35,13 @@ public class AnimationStateControl : MonoBehaviour
         bool isWalkingBackward = animator.GetBool(isWalkingBackwardHash);
         bool isCrouching = animator.GetBool(isCrouchingHash);
         bool isJumping = animator.GetBool(isJumpingHash);
+        bool isDead = animator.GetBool(isDeadHash);
         bool isSpinningAttacking = animator.GetBool(isSpinningAttackHash);
         bool forwardPressed = (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow));
         bool backwardPressed = (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow));
         bool crouchPressed = (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow));
         bool isJumpingPressed = (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow));
+        bool isDeadPressed = (Input.GetKey(KeyCode.K));
         bool isSpingAttackPressed = (Input.GetKey(KeyCode.Space)) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow));
 
         //Walking Forward
@@ -87,5 +93,23 @@ public class AnimationStateControl : MonoBehaviour
         {
             animator.SetBool(isSpinningAttackHash, false);
         }
+
+        // Death
+        if(!isDead && isDeadPressed)
+        {
+            animator.SetBool(isDeadHash, true);
+            Invoke("unParentSword", 1.3f);
+        }
+        else if (isDead && !isDeadPressed)
+        {
+            animator.SetBool(isDeadHash, false);
+        }
+    }
+
+    void unParentSword()
+    {
+        sword.gameObject.transform.parent = null;
+        sword.GetComponent<Rigidbody>().isKinematic = false;
+        sword.GetComponent<Rigidbody>().velocity = new Vector3(1.0f,1.0f,0.0f);
     }
 }
