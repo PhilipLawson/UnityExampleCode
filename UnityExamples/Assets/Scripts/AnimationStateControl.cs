@@ -10,6 +10,8 @@ public class AnimationStateControl : MonoBehaviour
     int isCrouchingHash;
     int isJumpingHash;
     int isSpinningAttackHash;
+    bool p1ControlsReversed = false;
+    bool p2ControlsReversed = true;
 
     // Start is called before the first frame update
     void Start()
