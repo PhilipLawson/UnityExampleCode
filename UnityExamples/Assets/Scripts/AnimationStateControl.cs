@@ -110,6 +110,6 @@ public class AnimationStateControl : MonoBehaviour
     {
         sword.gameObject.transform.parent = null;
         sword.GetComponent<Rigidbody>().isKinematic = false;
-        sword.GetComponent<Rigidbody>().velocity = new Vector3(1.0f,1.0f,0.0f);
+        sword.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-2.0f, 2.0f),1.0f,0.0f);
     }
 }
