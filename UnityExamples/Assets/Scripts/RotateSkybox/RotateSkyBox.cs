@@ -10,7 +10,7 @@ public class RotateSkyBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        sky.SetFloat("_Rotation", 0.0f);
     }
 
     // Update is called once per frame
