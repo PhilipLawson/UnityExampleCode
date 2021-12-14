@@ -59,7 +59,7 @@ public class MovePlayer : MonoBehaviour
     {
         // This checks to see if the object has touched the ground and if so,
         // sets the canJump bool back to true to allow jumping.
-        if(other.gameObject.tag == "Ground")
+        if((other.gameObject.tag == "Ground") | (other.gameObject.tag == "Glass"))
         {
             canJump = true;
             drag = 2;

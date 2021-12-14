@@ -10,6 +10,7 @@ TagManager:
   - bullet
   - Enemy
   - Wall
+  - Glass
   layers:
   - Default
   - TransparentFX
