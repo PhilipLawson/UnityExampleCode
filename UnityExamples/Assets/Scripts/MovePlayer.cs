@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
+    public bool canMove=true; 
     bool canJump=true;
     public Vector3 startPos;
     public bool AllowJump = true;
@@ -20,54 +21,57 @@ public class MovePlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.RightArrow))
+        if (canMove)
         {
-            this.GetComponent<Rigidbody>().AddForce(transform.right * playerSpeed);
-        }
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            this.GetComponent<Rigidbody>().AddForce(-transform.right * playerSpeed);
-        }
-        if(Input.GetKey(KeyCode.UpArrow))
-        {
-            this.GetComponent<Rigidbody>().AddForce(transform.forward * playerSpeed);
-        }
-        if(Input.GetKey(KeyCode.DownArrow))
-        {
-            this.GetComponent<Rigidbody>().AddForce(-transform.forward * playerSpeed);
-        }
-        if(Input.GetKey(KeyCode.Space) && canJump == true)
-        {
-            if(AllowJump)
+            if(Input.GetKey(KeyCode.RightArrow))
             {
-                canJump = false; //change to false so no air jumping
-                //Add velocity to the rigidbody
-                this.GetComponent<Rigidbody>().velocity = new Vector3(0,5.0f,0);
+                this.GetComponent<Rigidbody>().AddForce(transform.right * playerSpeed);
+            }
+            if(Input.GetKey(KeyCode.LeftArrow))
+            {
+                this.GetComponent<Rigidbody>().AddForce(-transform.right * playerSpeed);
+            }
+            if(Input.GetKey(KeyCode.UpArrow))
+            {
+                this.GetComponent<Rigidbody>().AddForce(transform.forward * playerSpeed);
+            }
+            if(Input.GetKey(KeyCode.DownArrow))
+            {
+                this.GetComponent<Rigidbody>().AddForce(-transform.forward * playerSpeed);
+            }
+            if(Input.GetKey(KeyCode.Space) && canJump == true)
+            {
+                if(AllowJump)
+                {
+                    canJump = false; //change to false so no air jumping
+                    //Add velocity to the rigidbody
+                    this.GetComponent<Rigidbody>().velocity = new Vector3(0,5.0f,0);
+                    this.GetComponent<Rigidbody>().drag = drag;
+                }
+            }
+            if(!canJump)
+            {
+                this.GetComponent<Rigidbody>().AddForce(new Vector3(0,-9.8f * Time.deltaTime,0));
+            }
+            if(allowDrag)
+            {
                 this.GetComponent<Rigidbody>().drag = drag;
             }
         }
-        if(!canJump)
+        void OnCollisionEnter(Collision other)
         {
-            this.GetComponent<Rigidbody>().AddForce(new Vector3(0,-9.8f * Time.deltaTime,0));
-        }
-        if(allowDrag)
-        {
-            this.GetComponent<Rigidbody>().drag = drag;
-        }
-    }
-    void OnCollisionEnter(Collision other)
-    {
-        // This checks to see if the object has touched the ground and if so,
-        // sets the canJump bool back to true to allow jumping.
-        if((other.gameObject.tag == "Ground") | (other.gameObject.tag == "Glass"))
-        {
-            canJump = true;
-            drag = 2;
-        }
-        if(other.gameObject.tag == "bullet")
-        {
-            Destroy(other.gameObject);
-            Respawn();
+            // This checks to see if the object has touched the ground and if so,
+            // sets the canJump bool back to true to allow jumping.
+            if((other.gameObject.tag == "Ground") | (other.gameObject.tag == "Glass"))
+            {
+                canJump = true;
+                drag = 2;
+            }
+            if(other.gameObject.tag == "bullet")
+            {
+                Destroy(other.gameObject);
+                Respawn();
+            }
         }
     }
 
