@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovePlayer : MonoBehaviour
 {
     public bool canMove=true; 
-    bool canJump=true;
+    public bool canJump=true;
     public Vector3 startPos;
     public bool AllowJump = true;
     public float playerSpeed;

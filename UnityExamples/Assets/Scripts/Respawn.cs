@@ -5,10 +5,11 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     public Vector3 startPos;
+    public GameObject Player;
     
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Respawn")
         {
             RespawnPlayer();
         }
@@ -23,5 +24,8 @@ public class Respawn : MonoBehaviour
         this.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         this.GetComponent<Rigidbody>().position = startPos;
         this.GetComponent<Rigidbody>().isKinematic = false;
+        Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        Player.gameObject.GetComponentInChildren<MovePlayer>().canMove = true;
+        Player.gameObject.GetComponentInChildren<MovePlayer>().canJump = true;
     }
 }
