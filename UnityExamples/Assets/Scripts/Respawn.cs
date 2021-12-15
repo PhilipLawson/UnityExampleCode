@@ -26,7 +26,8 @@ public class Respawn : MonoBehaviour
         Player.GetComponentInChildren<Rigidbody>().position = startPos;
         Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;*/
-        Player.GetComponentInChildren<Rigidbody>().velocity = new Vector3(0,0,0);
+        Debug.Log("Respawning Player");
         Player.transform.position = startPos;
+        Player.GetComponentInChildren<Rigidbody>().position = startPos;
     }
 }
