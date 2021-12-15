@@ -6,6 +6,7 @@ public class Respawn : MonoBehaviour
 {
     public Vector3 startPos;
     public GameObject Player;
+    public AudioSource thud;
     
     void OnTriggerEnter(Collider other)
     {
@@ -26,7 +27,10 @@ public class Respawn : MonoBehaviour
         Player.GetComponentInChildren<Rigidbody>().position = startPos;
         Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;*/
-        Debug.Log("Respawning Player");
+        if(!thud.isPlaying)
+        {
+            thud.Play();
+        }
         Player.transform.position = startPos;
         Player.GetComponentInChildren<Rigidbody>().position = startPos;
     }
