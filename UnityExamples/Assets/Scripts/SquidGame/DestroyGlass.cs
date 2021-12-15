@@ -9,7 +9,8 @@ public class DestroyGlass : MonoBehaviour
     {
         if ((other.gameObject.tag == "Player") && (this.gameObject.tag=="Enemy"))
         {
-            Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.None;
+            //Player.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            //Player.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             Destroy(this.gameObject);
         }
     }
