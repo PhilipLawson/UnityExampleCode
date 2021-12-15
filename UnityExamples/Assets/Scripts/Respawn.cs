@@ -25,7 +25,5 @@ public class Respawn : MonoBehaviour
         this.GetComponent<Rigidbody>().position = startPos;
         this.GetComponent<Rigidbody>().isKinematic = false;
         Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-        Player.gameObject.GetComponentInChildren<MovePlayer>().canMove = true;
-        Player.gameObject.GetComponentInChildren<MovePlayer>().canJump = true;
     }
 }

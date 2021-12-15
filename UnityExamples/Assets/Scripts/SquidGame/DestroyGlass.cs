@@ -7,11 +7,10 @@ public class DestroyGlass : MonoBehaviour
     public GameObject Player;
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if ((other.gameObject.tag == "Player") && (this.gameObject.tag=="Enemy"))
         {
-            Destroy(other.gameObject);
-            Player.gameObject.GetComponentInChildren<MovePlayer>().canMove = false;
             Player.gameObject.GetComponentInChildren<Rigidbody>().constraints = RigidbodyConstraints.None;
+            Destroy(this.gameObject);
         }
     }
 }
